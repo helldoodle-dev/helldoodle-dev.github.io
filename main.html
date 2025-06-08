@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalcraft Map Tool</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Lexend+Zetta:wght@100..900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="map"></div>
+
+    <div class="toolbar">
+        <div class="toolbar-section">
+            <div class="toolbar-section-title">Карта</div>
+            <div class="map-selector">
+                <button class="map-option active" data-map="map1">Хвойный</button>
+                <button class="map-option" data-map="map2">Кварталы</button>
+                <button class="map-option" data-map="map3">Роза ветров</button>
+                <button class="map-option" data-map="map4">Низина</button>
+            </div>
+        </div>
+
+        <div class="toolbar-section">
+            <div class="toolbar-section-title">Инструменты</div>
+            <div class="toolbar-buttons">
+                <button id="toggleDrawing">✏️ Рисование (выкл)</button>
+                <button id="toggleTent">⛺ Режим палатки (выкл)</button>
+            </div>
+        </div>
+
+        <div class="toolbar-section">
+            <div class="toolbar-section-title">Цвет</div>
+            <input type="color" id="colorPicker" value="#FF0000" title="Выберите цвет">
+        </div>
+
+        <div class="toolbar-section">
+            <div class="toolbar-section-title">Тип палатки</div>
+            <div class="tent-type-controls">
+                <button class="tent-type active" data-type="ally">Союзник</button>
+                <button class="tent-type" data-type="enemy">Противник</button>
+            </div>
+        </div>
+
+        <div class="toolbar-section">
+            <div class="toolbar-section-title">Управление</div>
+            <div class="toolbar-buttons">
+                <button id="clearDrawing">🧹 Очистить рисунки</button>
+                <button id="clearAll" class="danger">💣 Очистить ВСЁ</button>
+            </div>
+        </div>
+
+        <div class="toolbar-section hotkeys-section">
+            <div class="toolbar-section-title">
+                HotKeys
+                <button id="toggleHotkeys" class="collapse-btn-small">▲</button>
+            </div>
+            <div class="hotkeys-content">
+                <span>Ctrl + Z - Удалить последнее действие</span>
+                <span>Ctrl + X - Вернуть последнее действие</span>
+                <span>Alt + D - Переключить режим рисования</span>
+                <span>Alt + T - Переключить режим палатки</span>
+            </div>
+        </div>
+
+        <span>made by helldoodle (Ян_Гаунстяк)</span>
+        <button id="toggleToolbar" class="collapse-btn">▲</button>
+    </div>
+
+    <div class="status-indicator">Готов к работе</div>
+    <div class="coordinates-display">Координаты: 0, 0</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
